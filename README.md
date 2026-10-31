@@ -1,5 +1,10 @@
 # Cubrí Seguros
 
+## Enlaces
+
+- **Sitio publicado:** [https://cubriseguross.netlify.app](https://cubriseguross.netlify.app)
+- **Repositorio en GitHub:** [https://github.com/IaraUriarte/cubriSeguros](https://github.com/IaraUriarte/cubriSeguros)
+
 Checkout responsive para contratar un seguro de celular, realizado con HTML, Tailwind CSS v4, Basecoat UI y JavaScript vanilla.
 
 ## Cómo ejecutarlo
