@@ -1015,50 +1015,12 @@ button.product-card {
 
     .checkout-form {
         padding: 23px 20px;
-        padding-bottom: 280px;
+        padding-bottom: 160px;
         border-radius: 14px;
     }
 
-    .summary-card {
-        position: fixed;
-        z-index: 8;
-        top: auto;
-        right: 0;
-        bottom: 96px;
-        left: 0;
-        width: 100%;
-        padding: 12px max(18px, calc((100% - 520px) / 2));
-        overflow: hidden;
-        border: 0;
-        border-top: 1px solid var(--border);
-        border-radius: 0;
-        box-shadow: 0 -8px 20px rgb(15 23 42 / 5%);
-    }
-
-    .summary-card h2 {
-        margin-bottom: 7px;
-        padding-bottom: 0;
-        border: 0;
-        font-size: 13px;
-    }
-
-    .summary-content {
-        display: flex;
-        max-width: 100%;
-        align-items: center;
-        gap: 14px;
-        overflow-x: auto;
-        font-size: 12px;
-    }
-
-    .summary-item + .summary-item {
-        padding: 0 0 0 14px;
-        border-top: 0;
-        border-left: 1px solid var(--border);
-    }
-
-    .summary-note {
-        white-space: nowrap;
+    #resumen-lateral {
+        display: none;
     }
 
     .step-actions {
@@ -1139,10 +1101,6 @@ button.product-card {
         align-items: stretch;
         flex-direction: column;
         gap: 8px;
-    }
-
-    .summary-card {
-        bottom: 160px;
     }
 
     .step-actions .button {

@@ -41,6 +41,13 @@ export function render() {
 
     renderResumen();
 
+    if (pasoActual === 5) {
+        renderExito();
+    } else if (pasoActual === 6) {
+        document.getElementById('error-pago-mensaje').textContent =
+            solicitud.pago.motivo || 'La tarjeta fue rechazada. Podés reintentar o cambiar el medio de pago.';
+    }
+
 }
 
 function renderStepper() {
@@ -192,9 +199,35 @@ function agregarNota(contenedor, texto) {
     contenedor.append(nota);
 }
 
+function renderExito() {
+    const formatoMoneda = new Intl.NumberFormat('es-AR', {
+        style: 'currency',
+        currency: 'ARS',
+        maximumFractionDigits: 0
+    });
+    const planElegido = planesData.find((plan) => plan.id === solicitud.plan);
+    const cuota = planElegido
+        ? calcularCuota(solicitud.equipo.valor, planElegido.tasaAnual, solicitud.equipo.antiguedad)
+        : 0;
+
+    document.getElementById('exito-mensaje').textContent =
+        `Gracias, ${solicitud.titular.nombre}. Enviamos el comprobante a ${solicitud.titular.email}.`;
+    document.getElementById('exito-poliza').textContent = `Póliza Nº: ${solicitud.poliza}`;
+
+    const detalle = document.getElementById('exito-detalle');
+    detalle.textContent = [
+        'Seguro: Celular',
+        `Asegurado: ${solicitud.titular.nombre} ${solicitud.titular.apellido}`,
+        `Equipo: ${solicitud.equipo.marca} ${solicitud.equipo.modelo}`,
+        `Plan: ${planElegido ? planElegido.nombre : solicitud.plan}`,
+        `Cuota mensual: ${formatoMoneda.format(cuota)}`
+    ].join('\n');
+}
+
 function restaurarFormularios() {
     const formEquipo = document.getElementById('form-paso-1');
     const formTitular = document.getElementById('form-paso-3');
+    const formPago = document.getElementById('form-paso-4');
 
     formEquipo.elements.marca.value = solicitud.equipo.marca;
     formEquipo.elements.modelo.value = solicitud.equipo.modelo;
@@ -212,4 +245,10 @@ function restaurarFormularios() {
     formTitular.elements.email.value = solicitud.titular.email;
     formTitular.elements.celular.value = formatearCelular(solicitud.titular.celular);
     formTitular.elements.terminos.checked = solicitud.titular.terminos;
+
+    formPago.elements.metodo.value = solicitud.pago.metodo;
+    formPago.elements.tarjeta.value = solicitud.pago.tarjeta;
+    formPago.elements.vencimiento.value = solicitud.pago.vencimiento;
+    formPago.elements.cvv.value = solicitud.pago.cvv;
+    formPago.elements.titular.value = solicitud.pago.titular;
 }

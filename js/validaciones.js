@@ -62,3 +62,33 @@ export function validarCelular(celular) {
 export function validarTerminos(acepto) {
     return acepto ? null : 'Tenés que aceptar los términos';
 }
+
+export function validarTarjeta(numero) {
+    const limpio = String(numero).replace(/\D/g, '');
+    return /^\d{16}$/.test(limpio) ? null : 'Número de tarjeta inválido';
+}
+
+export function validarVencimiento(vencimiento) {
+    const regex = /^(0[1-9]|1[0-2])\/\d{2}$/;
+    if (!regex.test(vencimiento)) return 'Vencimiento inválido (MM/AA)';
+
+    const [mesTexto, anioTexto] = vencimiento.split('/');
+    const mes = Number(mesTexto);
+    const anio = Number(`20${anioTexto}`);
+    const hoy = new Date();
+    const mesActual = hoy.getMonth() + 1;
+    const anioActual = hoy.getFullYear();
+
+    if (anio < anioActual || (anio === anioActual && mes < mesActual)) {
+        return 'La tarjeta está vencida';
+    }
+    return null;
+}
+
+export function validarCVV(cvv) {
+    return /^\d{3}$/.test(String(cvv).trim()) ? null : 'CVV inválido';
+}
+
+export function validarTitularPago(titular) {
+    return titular && titular.trim() !== '' ? null : 'Ingresá el nombre del titular';
+}
