@@ -1,0 +1,61 @@
+:root {
+    color-scheme: light;
+    --primary: #4F46E5;
+    --primary-foreground: #FFFFFF;
+    --primary-700: #3730A3;
+    --primary-50: #EEF2FF;
+    --success: #059669;
+    --error: #DC2626;
+    --text: #0F172A;
+    --muted: #64748B;
+    --border: #E2E8F0;
+    --bg: #F5F7FB;
+    --primary-hover: #4338ca;
+    --card-bg: #ffffff;
+    --surface-raised: #f8fafc;
+    --surface-soft: #f1f5f9;
+    --subtle-border: #e8ebf1;
+    --heading: #111827;
+    --body-muted: #61728f;
+    --text-main: var(--text);
+    --text-muted: var(--muted);
+    --border-color: var(--border);
+    --radius: 0.75rem;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 88px;
+    font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+body {
+    margin: 0;
+    color: var(--text);
+    background: var(--bg);
+    font-family: inherit;
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    color: inherit;
+}
+
+button,
+input,
+select {
+    font: inherit;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+:focus-visible {
+    outline: 3px solid rgb(79 70 229 / 35%);
+    outline-offset: 3px;
+}

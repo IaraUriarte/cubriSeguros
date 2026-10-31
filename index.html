@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f5f7fb">
+    <meta name="description" content="Cotizá y contratá tu seguro para celular 100% online.">
+    <title>Cubrí Seguros | Contratación digital</title>
+    <link rel="icon" href="data:,">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/basecoat-css@1.1.0/dist/basecoat.cdn.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="./css/tokens.css">
+    <link rel="stylesheet" href="./css/layout.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="header-inner">
+            <a class="brand" href="#inicio" aria-label="Cubrí, inicio">
+                <span class="brand-mark" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none">
+                        <path d="M12 3.5 19 6v5.1c0 4.5-2.9 7.7-7 9.4-4.1-1.7-7-4.9-7-9.4V6l7-2.5Z"
+                            fill="currentColor" />
+                        <path d="m9 12 2 2 4-4" stroke="#fff" stroke-width="1.8" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </span>
+                <span>Cub<span class="brand-accent">rí</span></span>
+            </a>
+            <nav class="site-nav" aria-label="Navegación principal">
+                <span class="site-nav-item">Seguros</span>
+                <span class="site-nav-item">Siniestros</span>
+                <span class="site-nav-item">Ayuda</span>
+                <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Activar modo noche"
+                    aria-pressed="false" title="Activar modo noche">
+                    <svg class="theme-icon-moon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path d="M20.2 15.4A8.5 8.5 0 0 1 8.6 3.8 8.5 8.5 0 1 0 20.2 15.4Z" stroke="currentColor"
+                            stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    <svg class="theme-icon-sun" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.8" />
+                        <path
+                            d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"
+                            stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                    </svg>
+                </button>
+                <span class="site-nav-item account-link">Mi cuenta</span>
+            </nav>
+        </div>
+    </header>
+
+    <div id="stepper-container" class="stepper-container sticky top-0 z-10 hidden border-b bg-white/95 px-6 py-3"
+        aria-label="Progreso de contratación">
+        <ol class="stepper">
+            <li class="flex items-center gap-2 text-sm text-slate-400" data-step="1" aria-current="step"><span
+                    class="flex size-7 items-center justify-center rounded-full border border-slate-200 text-xs">1</span>
+                Equipo</li>
+            <li class="flex items-center gap-2 text-sm text-slate-400" data-step="2"><span
+                    class="flex size-7 items-center justify-center rounded-full border border-slate-200 text-xs">2</span>
+                Plan</li>
+            <li class="flex items-center gap-2 text-sm text-slate-400" data-step="3"><span
+                    class="flex size-7 items-center justify-center rounded-full border border-slate-200 text-xs">3</span>
+                Tus datos</li>
+            <li class="flex items-center gap-2 text-sm text-slate-400" data-step="4"><span
+                    class="flex size-7 items-center justify-center rounded-full border border-slate-200 text-xs">4</span>
+                Pago</li>
+        </ol>
+    </div>
+
+    <main>
+        <section class="hero page-width" id="inicio" data-paso="0" aria-labelledby="hero-title">
+            <div class="hero-copy">
+                <p class="promo-badge">Primer mes con 20% OFF</p>
+                <h1 id="hero-title">Protegé lo que más usás en menos de 3 minutos</h1>
+                <p class="hero-description">
+                    Elegí qué querés asegurar. Cotizás al instante y contratás 100% online.
+                    Sin papeles ni llamadas.
+                </p>
+                <button type="button" id="btn-iniciar-celular" class="btn button button-primary">Cotizar ahora</button>
+            </div>
+
+            <div class="product-grid" id="seguros" aria-label="Tipos de seguro disponibles">
+                <button type="button" class="product-card product-card-active" id="btn-iniciar-celular-card">
+                    <span class="product-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <rect x="6.5" y="3" width="11" height="18" rx="2.2" stroke="currentColor"
+                                stroke-width="1.8" />
+                            <path d="M10.5 17.5h3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                        </svg>
+                    </span>
+                    <span class="product-title">Celular</span>
+                    <span class="product-description">Robo, rotura y pérdida</span>
+                </button>
+                <article class="product-card product-card-soon" aria-disabled="true">
+                    <span class="coming-soon">Próximamente</span>
+                    <span class="product-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <path d="m4 10 8-7 8 7v10a1 1 0 0 1-1 1h-5v-7h-4v7H5a1 1 0 0 1-1-1V10Z"
+                                stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+                        </svg>
+                    </span>
+                    <span class="product-title">Hogar</span>
+                    <span class="product-description">Incendio y robo</span>
+                </article>
+                <article class="product-card product-card-soon" aria-disabled="true">
+                    <span class="coming-soon">Próximamente</span>
+                    <span class="product-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <circle cx="6" cy="17" r="3" stroke="currentColor" stroke-width="1.8" />
+                            <circle cx="18" cy="17" r="3" stroke="currentColor" stroke-width="1.8" />
+                            <circle cx="13" cy="5" r="1.5" stroke="currentColor" stroke-width="1.8" />
+                            <path d="m6 17 4-7h4l4 7m-8-7 3 4h4m-7-4 3-3" stroke="currentColor" stroke-width="1.8"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </span>
+                    <span class="product-title">Bicicleta</span>
+                    <span class="product-description">Robo total</span>
+                </article>
+                <article class="product-card product-card-soon" aria-disabled="true">
+                    <span class="coming-soon">Próximamente</span>
+                    <span class="product-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <path d="m21 3-7.2 18-3.5-7.3L3 10.2 21 3Z" stroke="currentColor" stroke-width="1.8"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="m10.3 13.7 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                        </svg>
+                    </span>
+                    <span class="product-title">Viaje</span>
+                    <span class="product-description">Asistencia al viajero</span>
+                </article>
+            </div>
+        </section>
+
+        <section class="benefits page-width" data-paso="0" aria-label="Beneficios de Cubrí">
+            <article class="benefit-card">
+                <h2>100% online</h2>
+                <p>Cotizás y contratás desde la web</p>
+            </article>
+            <article class="benefit-card">
+                <h2>Póliza al instante</h2>
+                <p>La recibís por email al confirmar</p>
+            </article>
+            <article class="benefit-card">
+                <h2>Sin permanencia</h2>
+                <p>Cancelás cuando quieras</p>
+            </article>
+        </section>
+
+        <div class="checkout-shell" id="checkout-shell">
+            <section class="checkout-layout page-width">
+                <section class="checkout-step" data-paso="1" aria-labelledby="paso-1-title" hidden>
+                    <form id="form-paso-1" class="checkout-form" novalidate>
+                        <p class="section-eyebrow">Paso 1 de 4 · Seguro para celular</p>
+                        <h1 id="paso-1-title">Contanos sobre tu equipo</h1>
+                        <p class="section-lead">Completá los datos para conocer los planes disponibles.</p>
+
+                        <div class="form-grid">
+                            <div class="field" role="group" id="marca-field">
+                                <label for="marca">Marca</label>
+                                <select id="marca" name="marca" aria-describedby="marca-error" required>
+                                    <option value="">Elegí una marca</option>
+                                    <option value="Apple">Apple</option>
+                                    <option value="Samsung">Samsung</option>
+                                    <option value="Motorola">Motorola</option>
+                                    <option value="Xiaomi">Xiaomi</option>
+                                    <option value="Otra">Otra</option>
+                                </select>
+                                <p id="marca-error" class="field-error" role="alert" hidden></p>
+                            </div>
+                            <div class="field" role="group" id="modelo-field">
+                                <label for="modelo">Modelo</label>
+                                <input id="modelo" name="modelo" type="text" maxlength="40"
+                                    placeholder="Ingresá el modelo" aria-describedby="modelo-error" required>
+                                <p id="modelo-error" class="field-error" role="alert" hidden></p>
+                            </div>
+                            <div class="field" role="group" id="valor-field">
+                                <label for="valor">Valor del equipo</label>
+                                <div class="currency-input">
+                                    <span aria-hidden="true">$</span>
+                                    <input id="valor" name="valor" type="text" inputmode="numeric"
+                                        placeholder="Ingresá el valor" aria-describedby="valor-error" required>
+                                </div>
+                                <p class="field-help">Entre $100.000 y $2.500.000</p>
+                                <p id="valor-error" class="field-error" role="alert" hidden></p>
+                            </div>
+                            <fieldset class="field" id="antiguedad-field" aria-describedby="antiguedad-error">
+                                <legend>Antigüedad</legend>
+                                <div class="choice-group age-choice-group">
+                                    <label
+                                        class="choice-chip inline-flex min-h-11 items-center gap-2 whitespace-nowrap rounded-lg border border-slate-200 bg-white px-3 py-2 text-xs cursor-pointer"><input
+                                            type="radio" name="antiguedad" value="menos_1"><span>Menos de 1
+                                            año</span></label>
+                                    <label
+                                        class="choice-chip inline-flex min-h-11 items-center gap-2 whitespace-nowrap rounded-lg border border-slate-200 bg-white px-3 py-2 text-xs cursor-pointer"><input
+                                            type="radio" name="antiguedad" value="1_a_2"><span>1 a 2 años</span></label>
+                                    <label
+                                        class="choice-chip inline-flex min-h-11 items-center gap-2 whitespace-nowrap rounded-lg border border-slate-200 bg-white px-3 py-2 text-xs cursor-pointer"><input
+                                            type="radio" name="antiguedad" value="mas_2"><span>+2 años</span></label>
+                                </div>
+                                <p id="antiguedad-error" class="field-error" role="alert" hidden></p>
+                            </fieldset>
+                        </div>
+
+                        <div class="step-actions">
+                            <button type="button" class="btn button-secondary btn-volver"
+                                data-variant="outline">Volver</button>
+                            <p id="paso-1-ayuda" class="action-help">Completá los datos para ver los planes.</p>
+                            <button type="button" id="btn-paso-1-siguiente" class="btn button button-primary"
+                                disabled>Ver planes</button>
+                        </div>
+                    </form>
+                </section>
+
+                <section class="checkout-step" data-paso="2" aria-labelledby="paso-2-title" hidden>
+                    <div class="checkout-form">
+                        <p class="section-eyebrow">Paso 2 de 4 · Plan</p>
+                        <h1 id="paso-2-title">Elegí tu cobertura</h1>
+                        <p class="section-lead">Todos los planes protegen tu celular. Elegí el que mejor se adapte a
+                            vos.</p>
+                        <div id="contenedor-planes" class="plans-grid" aria-label="Planes disponibles"></div>
+                        <p id="planes-error" class="field-error" role="alert" hidden></p>
+                        <div class="step-actions">
+                            <button type="button" class="btn button-secondary btn-volver"
+                                data-variant="outline">Volver</button>
+                            <p class="action-help">Podés cambiar tu plan antes de contratar.</p>
+                            <button type="button" id="btn-paso-2-siguiente" class="btn button button-primary"
+                                disabled>Continuar</button>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="checkout-step" data-paso="3" aria-labelledby="paso-3-title" hidden>
+                    <form id="form-paso-3" class="checkout-form" novalidate>
+                        <p class="section-eyebrow">Paso 3 de 4 · Tus datos</p>
+                        <h1 id="paso-3-title">¿Quién contrata el seguro?</h1>
+                        <p class="section-lead">Usaremos estos datos para emitir tu póliza.</p>
+
+                        <div class="form-grid">
+                            <div class="field" role="group" id="nombre-field">
+                                <label for="nombre">Nombre</label>
+                                <input id="nombre" name="nombre" type="text" autocomplete="given-name"
+                                    aria-describedby="nombre-error" required>
+                                <p id="nombre-error" class="field-error" role="alert" hidden></p>
+                            </div>
+                            <div class="field" role="group" id="apellido-field">
+                                <label for="apellido">Apellido</label>
+                                <input id="apellido" name="apellido" type="text" autocomplete="family-name"
+                                    aria-describedby="apellido-error" required>
+                                <p id="apellido-error" class="field-error" role="alert" hidden></p>
+                            </div>
+                            <div class="field" role="group" id="dni-field">
+                                <label for="dni">DNI</label>
+                                <input id="dni" name="dni" type="text" inputmode="numeric" maxlength="10"
+                                    autocomplete="off" aria-describedby="dni-error" required>
+                                <p id="dni-error" class="field-error" role="alert" hidden></p>
+                            </div>
+                            <div class="field" role="group" id="nacimiento-field">
+                                <label for="nacimiento">Fecha de nacimiento</label>
+                                <input id="nacimiento" name="nacimiento" type="date" autocomplete="bday"
+                                    aria-describedby="nacimiento-error" required>
+                                <p id="nacimiento-error" class="field-error" role="alert" hidden></p>
+                            </div>
+                            <div class="field" role="group" id="email-field">
+                                <label for="email">Email</label>
+                                <input id="email" name="email" type="email" autocomplete="email"
+                                    aria-describedby="email-error" required>
+                                <p id="email-error" class="field-error" role="alert" hidden></p>
+                            </div>
+                            <div class="field" role="group" id="celular-field">
+                                <label for="celular">Celular</label>
+                                <input id="celular" name="celular" type="tel" inputmode="numeric" maxlength="12"
+                                    autocomplete="tel" placeholder="11 5555-1234" aria-describedby="celular-error"
+                                    required>
+                                <p id="celular-error" class="field-error" role="alert" hidden></p>
+                            </div>
+                            <div class="field field-full terms-field" role="group" id="terminos-field">
+                                <label class="terms-label" for="terminos">
+                                    <input id="terminos" name="terminos" type="checkbox"
+                                        aria-describedby="terminos-error" required>
+                                    <span>Acepto los términos y condiciones del seguro.</span>
+                                </label>
+                                <p id="terminos-error" class="field-error" role="alert" hidden></p>
+                            </div>
+                        </div>
+
+                        <div class="step-actions">
+                            <button type="button" class="btn button-secondary btn-volver"
+                                data-variant="outline">Volver</button>
+                            <p id="paso-3-ayuda" class="action-help">Completá tus datos y aceptá los términos para
+                                continuar.</p>
+                            <button type="button" id="btn-paso-3-siguiente" class="btn button button-primary"
+                                disabled>Continuar al pago</button>
+                        </div>
+                    </form>
+                </section>
+
+                <section class="checkout-step" data-paso="4" aria-labelledby="paso-4-title" hidden>
+                    <form id="form-paso-4" class="checkout-form" novalidate>
+                        <p class="section-eyebrow">Paso 4 de 4 · Pago</p>
+                        <h1 id="paso-4-title">Completá el pago</h1>
+                        <p class="section-lead">Tu pago es simulado. No ingreses datos de tarjetas reales.</p>
+
+                        <div class="form-grid payment-grid">
+                            <fieldset class="field field-full payment-method-field" id="metodo-field">
+                                <legend>Medio de pago</legend>
+                                <div class="payment-method-options grid grid-cols-2 gap-3 max-[420px]:gap-2"
+                                    role="radiogroup" aria-label="Elegí crédito o débito">
+                                    <label class="payment-method-option">
+                                        <input type="radio" name="metodo" value="credito" checked>
+                                        <span>Tarjeta de crédito</span>
+                                    </label>
+                                    <label class="payment-method-option">
+                                        <input type="radio" name="metodo" value="debito">
+                                        <span>Tarjeta de débito</span>
+                                    </label>
+                                </div>
+                            </fieldset>
+                            <div class="field field-full" role="group" id="tarjeta-field">
+                                <label for="tarjeta">Número de tarjeta de prueba</label>
+                                <input id="tarjeta" name="tarjeta" type="text" inputmode="numeric" autocomplete="off"
+                                    maxlength="19" placeholder="4111 1111 1111 1111"
+                                    aria-describedby="tarjeta-ayuda tarjeta-error" required>
+                                <p id="tarjeta-ayuda" class="field-help">Usá solo una tarjeta de prueba de la consigna.
+                                </p>
+                                <p id="tarjeta-error" class="field-error" role="alert" hidden></p>
+                            </div>
+                            <div class="field" role="group" id="vencimiento-field">
+                                <label for="vencimiento">Vencimiento</label>
+                                <input id="vencimiento" name="vencimiento" type="text" inputmode="numeric"
+                                    autocomplete="off" maxlength="5" placeholder="MM/AA"
+                                    aria-describedby="vencimiento-error" required>
+                                <p id="vencimiento-error" class="field-error" role="alert" hidden></p>
+                            </div>
+                            <div class="field" role="group" id="cvv-field">
+                                <label for="cvv">CVV</label>
+                                <input id="cvv" name="cvv" type="password" inputmode="numeric" autocomplete="off"
+                                    maxlength="3" placeholder="123" aria-describedby="cvv-error" required>
+                                <p id="cvv-error" class="field-error" role="alert" hidden></p>
+                            </div>
+                            <div class="field field-full" role="group" id="titular-field">
+                                <label for="titular">Titular de la tarjeta</label>
+                                <input id="titular" name="titular" type="text" autocomplete="cc-name"
+                                    aria-describedby="titular-error" required>
+                                <p id="titular-error" class="field-error" role="alert" hidden></p>
+                            </div>
+                        </div>
+                        <p id="pago-ayuda" class="action-help">Completá todos los datos de pago para contratar.</p>
+                        <div class="step-actions">
+                            <button type="button" class="btn button-secondary btn-volver"
+                                data-variant="outline">Volver</button>
+                            <button type="button" id="btn-pagar" class="btn button button-primary" disabled>Pagar y
+                                contratar</button>
+                        </div>
+                    </form>
+                </section>
+
+                <aside id="resumen-lateral" class="summary-card card" aria-live="polite"
+                    aria-label="Resumen de la contratación" hidden></aside>
+            </section>
+        </div>
+
+        <section class="final-screen page-width" data-paso="5" aria-labelledby="exito-title" hidden>
+            <div class="final-card card">
+                <span class="final-icon success-icon" aria-hidden="true">✓</span>
+                <p class="section-eyebrow">Seguro contratado</p>
+                <h1 id="exito-title">¡Tu celular ya está protegido!</h1>
+                <p id="exito-mensaje" class="section-lead"></p>
+                <p id="exito-poliza" class="policy-number"></p>
+                <div id="exito-detalle" class="final-detail"></div>
+                <p id="error-descarga-poliza" class="field-error" role="alert" hidden></p>
+                <div class="final-actions">
+                    <button type="button" id="btn-descargar-poliza" class="btn button-secondary"
+                        data-variant="outline">Descargar póliza</button>
+                    <button type="button" id="btn-volver-inicio" class="btn button button-primary">Volver al
+                        inicio</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="final-screen page-width" data-paso="6" aria-labelledby="error-title" hidden>
+            <div class="final-card card">
+                <span class="final-icon failure-icon" aria-hidden="true">!</span>
+                <p class="section-eyebrow">Pago no aprobado</p>
+                <h1 id="error-title">No pudimos procesar el pago</h1>
+                <div class="alert payment-error" data-variant="destructive" role="alert">
+                    <p id="error-pago-mensaje">La tarjeta fue rechazada. Podés reintentar o cambiar el medio de pago.
+                    </p>
+                </div>
+                <div class="final-actions">
+                    <button type="button" id="btn-reintentar-pago" class="btn button button-primary">Reintentar
+                        pago</button>
+                    <button type="button" id="btn-cambiar-medio-pago" class="btn button-secondary"
+                        data-variant="outline">Cambiar medio de pago</button>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>
