@@ -357,6 +357,10 @@ button.product-card {
     border-color: var(--success);
 }
 
+.mobile-checkout-header {
+    display: none;
+}
+
 .checkout-shell {
     padding: 34px 0 72px;
 }
@@ -911,6 +915,49 @@ button.product-card {
         height: 58px;
     }
 
+    body:has(#checkout-shell:not([hidden])) .site-header {
+        display: none;
+    }
+
+    .mobile-checkout-header:not([hidden]) {
+        position: sticky;
+        z-index: 6;
+        top: 0;
+        display: flex;
+        min-height: 56px;
+        align-items: center;
+        gap: 18px;
+        padding: 0 max(18px, calc((100% - 520px) / 2));
+        color: var(--text);
+        background: var(--card-bg);
+        border-bottom: 1px solid var(--border);
+    }
+
+    .mobile-checkout-back {
+        display: grid;
+        width: 36px;
+        height: 40px;
+        flex: 0 0 auto;
+        place-items: center;
+        padding: 0;
+        color: var(--text);
+        background: transparent;
+        border: 0;
+        cursor: pointer;
+    }
+
+    .mobile-checkout-back svg {
+        width: 24px;
+        height: 24px;
+    }
+
+    .mobile-checkout-header h1 {
+        margin: 0;
+        font-size: 20px;
+        font-weight: 750;
+        letter-spacing: -0.5px;
+    }
+
     .site-nav {
         gap: 8px;
     }
@@ -979,6 +1026,7 @@ button.product-card {
     }
 
     .stepper-container {
+        top: 56px;
         padding: 10px 18px;
     }
 
@@ -1034,14 +1082,22 @@ button.product-card {
         padding: 12px max(18px, calc((100% - 520px) / 2)) max(12px, env(safe-area-inset-bottom));
         background: white;
         border-top: 1px solid var(--border);
+        align-items: stretch;
+        flex-direction: column;
+        gap: 8px;
     }
 
     .step-actions .button {
-        min-width: 150px;
+        width: 100%;
+        min-width: 0;
     }
 
     .step-actions .btn-volver {
-        min-width: 0;
+        display: none;
+    }
+
+    .step-actions .action-help {
+        text-align: center;
     }
 
     .checkout-step:has(#form-paso-4) .step-actions {
@@ -1147,6 +1203,7 @@ html[data-theme="dark"] body {
 }
 
 html[data-theme="dark"] .site-header,
+html[data-theme="dark"] .mobile-checkout-header,
 html[data-theme="dark"] .benefit-card,
 html[data-theme="dark"] .checkout-form,
 html[data-theme="dark"] .summary-card,
@@ -1316,4 +1373,11 @@ html[data-theme="dark"] .success-icon {
 html[data-theme="dark"] .failure-icon {
     color: #fecaca;
     background: #7f1d1d;
+}
+
+@media (max-width: 760px) {
+    html[data-theme="dark"] .step-actions {
+        background: var(--card-bg);
+        border-color: var(--border);
+    }
 }

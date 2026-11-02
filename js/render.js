@@ -52,10 +52,12 @@ export function render() {
 
 function renderStepper() {
     const stepperContainer = document.getElementById('stepper-container');
+    const mobileCheckoutHeader = document.getElementById('mobile-checkout-header');
     const pasoActual = solicitud.paso;
     const estaEnCheckout = pasoActual >= 1 && pasoActual <= 4;
 
     stepperContainer.classList.toggle('hidden', !estaEnCheckout);
+    mobileCheckoutHeader.hidden = !estaEnCheckout;
     stepperContainer.querySelectorAll('[data-step]').forEach((item) => {
         const numeroPaso = Number(item.dataset.step);
         const completado = numeroPaso < pasoActual;
